@@ -1,1 +1,1 @@
-**お金 Management**
+**お金 spendings bot**
