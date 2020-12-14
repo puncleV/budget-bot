@@ -1,0 +1,70 @@
+{
+  "name": "ts-template",
+  "version": "1.0.0",
+  "description": "TS template",
+  "main": "build/app.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node build/app.js",
+    "start:watch": "nodemon",
+    "lint": "eslint . --fix --ext .ts",
+    "test": "jest --env=node --colors --coverage test"
+  },
+  "keywords": [
+    "template",
+    "Typescript",
+    "node",
+    "ts",
+    "sample"
+  ],
+  "author": "Kozlov Viktor",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "26.0.14",
+    "@types/node": "14.10.3",
+    "@typescript-eslint/eslint-plugin": "4.1.1",
+    "@typescript-eslint/eslint-plugin-tslint": "4.1.1",
+    "@typescript-eslint/parser": "4.1.1",
+    "casual": "1.6.2",
+    "eslint": "7.9.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jest": "24.0.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "husky": "4.3.0",
+    "import-sort-style-module": "6.0.0",
+    "jest": "26.4.2",
+    "lint-staged": "10.4.0",
+    "nodemon": "2.0.4",
+    "prettier": "2.1.2",
+    "prettier-plugin-import-sort": "0.0.5",
+    "ts-jest": "26.3.0",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.2"
+  },
+  "dependencies": {
+    "source-map-support": "0.5.19"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --config .prettierrc --write ./src",
+      "eslint . --fix --ext .ts",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-checkout": "npm i",
+      "post-merge": "npm i",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  }
+}
