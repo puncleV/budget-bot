@@ -1,4 +1,5 @@
-import { Context } from "telegraf";
+export const parseMessageText = (text?: string): string[] => {
+  const [command, ...message] = text?.split(" ") || [];
 
-export const getMessageTextWithoutPrefix = (ctx: Context, prefix: string): string =>
-  ctx.message?.text?.replace(new RegExp(`^/${prefix}`), "") || "";
+  return [command, message.join(" ")];
+};
